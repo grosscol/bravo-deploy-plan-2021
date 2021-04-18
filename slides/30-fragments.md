@@ -1,7 +1,7 @@
 ---
-author: Display Lab
-title: Demo Slides
-date: 2019-05-21
+author: Colin A. Gross
+title: BRAVO Deployment
+date: 2021-04-20
 ---
 
 # Seventh Title

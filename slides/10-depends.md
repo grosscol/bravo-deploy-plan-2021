@@ -1,12 +1,14 @@
 ---
-author: Display Lab
-title: Demo Slides
-date: 2019-05-21
+author: Colin A. Gross
+title: BRAVO Deployment
+date: 2021-04-20
 ---
 
-# Third Title
-Tortor pretium viverra suspendisse potenti nullam ac tortor vitae. 
-Nunc mattis enim ut tellus elementum sagittis vitae et. 
+# Current Dependencies
+- Python (API)
+- Python (UI + Vue)
+- MongoDB
+- Mountain of data files
 
 ## 3 Sub 1
 ```ruby
@@ -29,3 +31,15 @@ Donec pretium vulputate sapien nec sagittis aliquam malesuada bibendum.
 _Vestibulum sed arcu non odio euismod._
 **Ut tellus elementum sagittis vitae et leo duis ut.**
 
+# Desired Dependencies
+- Python
+- Static file serving
+- MongoDB
+- 
+
+## Future deployment target
+- Static file serving
+- Container Management
+    - Docker swarm
+    - Kubernetes
+    - Nomad
