@@ -18,6 +18,14 @@ pandoc -t revealjs --template=pandoc-templates/default.revealjs \
   -V reveal.js=./reveal.js  -V theme=white slides/*.md
 ```
 
+### Watching changes live
+
+Start in separate sessions or run the [livereload](https://pypi.org/project/livereload/) server in the background.
+```
+livereload index.html > /dev/null &
+fdfind '.*\.md' slides | entr ./build_slides.sh
+```
+
 ## Publishing to Github Pages
 
 1. Create repo: https://github.com/new
