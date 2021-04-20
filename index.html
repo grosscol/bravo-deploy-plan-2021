@@ -171,8 +171,8 @@
 <ul>
 <li>Single responsibility repositories
 <ul>
-<li>Bravo API</li>
-<li>Bravo UI</li>
+<li><a href="https://github.com/statgen/bravo_api">Bravo API</a></li>
+<li><a href="https://github.com/statgen/bravo_ui">Bravo UI</a></li>
 <li>Bravo DataPrep</li>
 </ul></li>
 <li>Local machine
@@ -255,80 +255,93 @@
 </ul>
 </section></section>
 <section>
-<section id="ansible-playbook" class="title-slide slide level1">
-<h1>Ansible Playbook</h1>
-<p>Image content</p>
-<p><img data-src="assets/top_perf.svg" /></p>
-</section>
-<section id="section" class="slide level2">
-<h2></h2>
-<figure>
-<img data-src="assets/top_perf.svg" width="250" alt="image title" /><figcaption aria-hidden="true">image title</figcaption>
-</figure>
-</section>
-<section id="sequence" class="slide level2">
-<h2>Sequence</h2>
-<p>Incremental fragments</p>
-<p><span class="fragment"> stuff </span></p>
-<p><span class="fragment"> other </span></p>
-<p><span class="fragment"> stuff </span></p>
-</section></section>
-<section id="seventh-title" class="title-slide slide level1">
-<h1>Seventh Title</h1>
-<p>Incremental fragments</p>
-<p><span class="fragment"> stuff </span></p>
-<p><span class="fragment"> other </span></p>
-<p><span class="fragment"> stuff </span></p>
-</section>
+<section id="current-deploy" class="title-slide slide level1">
+<h1>Current Deploy</h1>
 
-<section>
-<section id="current-dependencies" class="title-slide slide level1">
-<h1>Current Dependencies</h1>
-<ul>
-<li>Python (API)</li>
-<li>Python (UI + Vue)</li>
-<li>MongoDB</li>
-<li>Mountain of data files</li>
-</ul>
 </section>
-<section id="sub-1" class="slide level2">
-<h2>3 Sub 1</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode ruby"><code class="sourceCode ruby"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">puts</span> <span class="st">&quot;Hello World&quot;</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>(<span class="dv">1</span><span class="kw">..</span><span class="dv">10</span>)<span class="at">.each</span><span class="kw">{</span> <span class="kw">|</span>n<span class="kw">|</span> <span class="fu">puts</span> n<span class="kw">+</span><span class="dv">10</span> <span class="kw">}</span></span></code></pre></div>
-<p>Enim nulla aliquet porttitor lacus luctus accumsan. Nulla pellentesque dignissim enim sit amet.</p>
+<section id="ansible-playbook" class="slide level2">
+<h2>Ansible Playbook</h2>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">∫</span> workspace/ansible_bravo ⮞ ansible-playbook playbook.yml</span></code></pre></div>
 </section>
-<section id="sub-2" class="slide level2">
-<h2>3 Sub 2</h2>
-<p><del>Auctor neque vitae tempus quam pellentesque.</del></p>
-<h3 id="scelerisque-viverra-mauris-in-aliquam-sem-fringilla.">Scelerisque viverra mauris in aliquam sem fringilla.</h3>
-<p>Donec pretium vulputate sapien nec sagittis aliquam malesuada bibendum.</p>
+<section id="config-per-host" class="slide level2">
+<h2>Config per Host</h2>
+<p>Defined in an inventory.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">bravo</span><span class="kw">:</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">hosts</span><span class="kw">:</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">bdev</span><span class="kw">:</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">ansible_host</span><span class="kw">:</span><span class="at"> bdev</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">ansible_user</span><span class="kw">:</span><span class="at"> bravo-user</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">vars</span><span class="kw">:</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code_dir</span><span class="kw">:</span><span class="at"> /opt/bravo-ansible</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">inst_dir</span><span class="kw">:</span><span class="at"> /var/bravo-ansible</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">api_port</span><span class="kw">:</span><span class="at"> </span><span class="dv">10088</span><span class="at"> </span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">ui_port</span><span class="kw">:</span><span class="at"> </span><span class="dv">10099</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">data_dir</span><span class="kw">:</span><span class="at"> /var/bravo/data</span></span></code></pre></div>
 </section>
-<section id="sub-3" class="slide level2">
-<h2>3 Sub 3</h2>
-<p><em>Massa id neque aliquam vestibulum morbi blandit cursus risus at.</em> <em>Vestibulum sed arcu non odio euismod.</em> <strong>Ut tellus elementum sagittis vitae et leo duis ut.</strong></p>
+<section id="discrete-tasks" class="slide level2">
+<h2>Discrete Tasks</h2>
+<p>Defined in a playbook.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode yml"><code class="sourceCode yaml"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">-</span><span class="at"> </span><span class="fu">hosts</span><span class="kw">:</span><span class="at"> bravo</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">become</span><span class="kw">:</span><span class="at"> </span><span class="ch">no</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">tags</span><span class="kw">:</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> code</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">gather_facts</span><span class="kw">:</span><span class="at"> </span><span class="ch">no</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">tasks</span><span class="kw">:</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Checkout API code</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">ansible.builtin.git</span><span class="kw">:</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">clone</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">depth</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">dest</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;{{code_dir}}/api&quot;</span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">repo</span><span class="kw">:</span><span class="at"> https://github.com/statgen/bravo_api.git</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Checkout UI code</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">ansible.builtin.git</span><span class="kw">:</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">clone</span><span class="kw">:</span><span class="at"> </span><span class="ch">yes</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">depth</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">dest</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;{{code_dir}}/ui&quot;</span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">repo</span><span class="kw">:</span><span class="at"> https://github.com/statgen/bravo_ui.git</span></span></code></pre></div>
+</section>
+<section id="summary-report" class="slide level2">
+<h2>Summary Report</h2>
+On stdout
+<pre>
+PLAY [bravo] ***********************************************
+TASK [Checkout API code] ***********************************
+<font color="#4E9A06">ok: [bdev]</font>
+TASK [Checkout UI code] ************************************
+<font color="#4E9A06">ok: [bdev]</font>
+PLAY [bravo] ***********************************************
+TASK [Create API instance dir] *****************************
+<font color="#4E9A06">ok: [bdev]</font>
+TASK [Create UI instance dir] ******************************
+<font color="#4E9A06">ok: [bdev]</font>
+TASK [Create API venv] *************************************
+<font color="#4E9A06">ok: [bdev]</font>
+TASK [Create UI venv] **************************************
+<font color="#4E9A06">ok: [bdev]</font>
+PLAY [bravo] ***********************************************
+TASK [Create API startup script] ***************************
+<font color="#4E9A06">ok: [bdev]</font>
+TASK [Create API config] ***********************************
+<font color="#4E9A06">ok: [bdev]</font>
+TASK [Create UI startup script] ****************************
+<font color="#4E9A06">ok: [bdev]</font>
+TASK [Create UI config] ************************************
+<font color="#4E9A06">ok: [bdev]</font>
+PLAY RECAP *************************************************
+<font color="#4E9A06">bdev</font>: <font color="#4E9A06">ok=10  </font> changed=0    unreachable=0    failed=0    skipped=0
+rescued=0    ignored=0</pre>
+</section>
+<section id="access-dev-server" class="slide level2">
+<h2>Access Dev Server</h2>
+<p>SSH Port Forwarding + Web Browser</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ssh</span> <span class="at">-L</span> 10099:localhost:10099 username@bravo-dev-host</span></code></pre></div>
 </section></section>
-<section>
-<section id="desired-dependencies" class="title-slide slide level1">
-<h1>Desired Dependencies</h1>
-<ul>
-<li>Python</li>
-<li>Static file serving</li>
-<li>MongoDB</li>
-<li></li>
-</ul>
+<section id="end" class="title-slide slide level1">
+<h1>End</h1>
+
 </section>
-<section id="future-deployment-target" class="slide level2">
-<h2>Future deployment target</h2>
-<ul>
-<li>Static file serving</li>
-<li>Container Management
-<ul>
-<li>Docker swarm</li>
-<li>Kubernetes</li>
-<li>Nomad</li>
-</ul></li>
-</ul>
-</section></section>
     </div>
   </div>
 

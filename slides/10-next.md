@@ -16,8 +16,8 @@ date: 2021-04-20
 
 ## Development
 - Single responsibility repositories
-    - Bravo API
-    - Bravo UI
+    - [Bravo API](https://github.com/statgen/bravo_api)
+    - [Bravo UI](https://github.com/statgen/bravo_ui)
     - Bravo DataPrep
 - Local machine
   - Pre-packaged data vignette (chr11 subset) 
